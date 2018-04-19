@@ -21,7 +21,7 @@ $password = $xmlConfig.config.Azure.Deployment.Data.Password
 $sshKey = $xmlConfig.config.Azure.Deployment.Data.sshKey
 $sshPublickey = $xmlConfig.config.Azure.Deployment.Data.sshPublicKey
 $LinuxSSHCertificate = Import-Certificate -FilePath .\ssh\$sshPublickey -CertStoreLocation Cert:\CurrentUser\My
-$sshPublicKeyThumbprint = $LinuxSSHCertificate.Thumbprint
+$global:sshPublicKeyThumbprint = $LinuxSSHCertificate.Thumbprint
 Set-Variable -Name user -Value $user -Scope Global
 Set-Variable -Name password -Value $password -Scope Global
 Set-Variable -Name sshKey -Value $sshKey -Scope Global
