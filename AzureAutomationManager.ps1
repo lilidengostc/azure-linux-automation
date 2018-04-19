@@ -217,7 +217,7 @@ try
     else
     {
         $LinuxSSHCertificate = Import-Certificate -FilePath .\ssh\$sshPublickey -CertStoreLocation Cert:\CurrentUser\My
-        $sshPublicKeyThumbprint = $LinuxSSHCertificate.Thumbprint
+        $global:sshPublicKeyThumbprint = $LinuxSSHCertificate.Thumbprint
         Set-Variable -Name UseAzureResourceManager -Value $false -Scope Global
         LogMsg "Setting Azure Subscription ..."
 		$out = SetSubscription -subscriptionID $AzureSetup.SubscriptionID -subscriptionName $AzureSetup.SubscriptionName -certificateThumbprint $AzureSetup.CertificateThumbprint -managementEndpoint $AzureSetup.ManagementEndpoint -storageAccount $AzureSetup.StorageAccount -environment $AzureSetup.Environment
