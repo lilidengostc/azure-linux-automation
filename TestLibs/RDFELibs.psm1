@@ -633,7 +633,7 @@ Function GenerateCommand ($Setup, $serviceName, $osImage, $HSData)
 		}
 		$sshPath = '/home/' + $defaultuser + '/.ssh/authorized_keys'		 	
 		$vmRoleConfig = "New-AzureVMConfig -Name $vmName -InstanceSize $instanceSize -ImageName $osImage"
-		$vmProvConfig = "Add-AzureProvisioningConfig -Linux -LinuxUser $defaultuser -Password $defaultPassword -SSHPublicKeys (New-AzureSSHKey -PublicKey -Fingerprint $sshPublicKeyThumbprint -Path $sshPath)"
+		$vmProvConfig = "Add-AzureProvisioningConfig -Linux -LinuxUser $defaultuser -Password $defaultPassword -SSHPublicKeys (New-AzureSSHKey -PublicKey -Fingerprint $global:sshPublicKeyThumbprint -Path $sshPath)"
 		if($SubnetName)
 		{
 			$vmProvConfig = $vmProvConfig + "| Set-AzureSubnet -SubnetNames $SubnetName"
